@@ -1,0 +1,6 @@
+C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole v0.1\obj\Release\RutrackerMole v0.1.csproj.CoreCompileInputs.cache
+C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole v0.1\bin\Release\RutrackerMole v0.1.exe.config
+C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole v0.1\bin\Release\RutrackerMole v0.1.exe
+C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole v0.1\bin\Release\RutrackerMole v0.1.pdb
+C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole v0.1\obj\Release\RutrackerMole v0.1.exe
+C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole v0.1\obj\Release\RutrackerMole v0.1.pdb
