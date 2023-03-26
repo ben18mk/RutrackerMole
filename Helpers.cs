@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Interop;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
-namespace RutrackerMole_v1_0
+namespace RutrackerMole_v2._0
 {
     static class Helpers
     {
@@ -15,23 +21,57 @@ namespace RutrackerMole_v1_0
             try
             {
                 HttpWebRequest htrRequest = (HttpWebRequest)WebRequest.Create(strUrl);
-                HttpWebResponse htrResponse = null;
-                if (htrRequest.GetResponseAsync().Wait(new TimeSpan(0, 0, 10)))
-                    htrResponse = (HttpWebResponse)htrRequest.GetResponse();
-                else return null;
+                //HttpWebResponse htrResponse = null;
+                //if (htrRequest.GetResponseAsync().Wait(new TimeSpan(0, 0, 10)))
+                //    htrResponse = (HttpWebResponse)htrRequest.GetResponse();
+                //else return null;
 
-                if (htrResponse.StatusCode == HttpStatusCode.OK)
+                using (HttpWebResponse blip = null)
                 {
-                    Stream sReceiveStream = htrResponse.GetResponseStream();
-                    StreamReader srReader = null;
+                    HttpWebResponse htrResponse = null;
 
-                    if (htrResponse.CharacterSet == null)
-                        srReader = new StreamReader(sReceiveStream);
-                    else
-                        srReader = new StreamReader(sReceiveStream, Encoding.GetEncoding(htrResponse.CharacterSet));
+                    if (htrRequest.GetResponseAsync().Wait(new TimeSpan(0, 0, 10)))
+                        htrResponse = (HttpWebResponse)htrRequest.GetResponse();
+                    else return null;
 
-                    return srReader.ReadToEnd();
+                    if (htrResponse.StatusCode == HttpStatusCode.OK)
+                    {
+                        //Stream sReceiveStream = htrResponse.GetResponseStream();
+                        //StreamReader srReader = null;
+
+                        //if (htrResponse.CharacterSet == null)
+                        //    srReader = new StreamReader(sReceiveStream);
+                        //else
+                        //    srReader = new StreamReader(sReceiveStream, Encoding.GetEncoding(htrResponse.CharacterSet));
+
+                        //return srReader.ReadToEnd();
+
+                        using (Stream sReceiveStream = htrResponse.GetResponseStream())
+                        {
+                            StreamReader srReader = null;
+
+                            if (htrResponse.CharacterSet == null)
+                                srReader = new StreamReader(sReceiveStream);
+                            else
+                                srReader = new StreamReader(sReceiveStream, Encoding.GetEncoding(htrResponse.CharacterSet));
+
+                            return srReader.ReadToEnd();
+                        }
+                    }
                 }
+
+                //if (htrResponse.StatusCode == HttpStatusCode.OK)
+                //{
+                //    Stream sReceiveStream = htrResponse.GetResponseStream();
+                //    StreamReader srReader = null;
+
+                //    if (htrResponse.CharacterSet == null)
+                //        srReader = new StreamReader(sReceiveStream);
+                //    else
+                //        srReader = new StreamReader(sReceiveStream, Encoding.GetEncoding(htrResponse.CharacterSet));
+
+                //    return srReader.ReadToEnd();
+                //}
             }
             catch (Exception) { }
 
@@ -57,5 +97,26 @@ namespace RutrackerMole_v1_0
         }
         public static bool CheckHTML(string strHTML, string strFind)
             => strHTML.Contains(strFind);
+        public static bool IsUrl(string strString)
+            => !(new char[10] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' }).Contains(strString.First());
+
+        public static ImageSource ToImageSource(this Icon iIcon)
+        {
+            Bitmap bitmap = iIcon.ToBitmap();
+            IntPtr hBitmap = bitmap.GetHbitmap();
+
+            ImageSource wpfBitmap = Imaging.CreateBitmapSourceFromHBitmap(
+                hBitmap,
+                IntPtr.Zero,
+                Int32Rect.Empty,
+                BitmapSizeOptions.FromEmptyOptions());
+
+            if (!GDI32_dll.DeleteObject(hBitmap))
+            {
+                throw new Win32Exception();
+            }
+
+            return wpfBitmap;
+        }
     }
 }
