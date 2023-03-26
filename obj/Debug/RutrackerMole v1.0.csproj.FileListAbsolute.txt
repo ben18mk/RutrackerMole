@@ -1,7 +1,0 @@
-C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole\bin\Debug\RutrackerMole.exe.config
-C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole\bin\Debug\RutrackerMole.exe
-C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole\bin\Debug\RutrackerMole.pdb
-C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole\obj\Debug\RutrackerMole v1.0.csproj.CoreCompileInputs.cache
-C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole\obj\Debug\RutrackerMole.exe
-C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole\obj\Debug\RutrackerMole.pdb
-C:\Users\Benjamin\source\repos\RutrackerMole\RutrackerMole\obj\Debug\RutrackerMole v1.0.csprojAssemblyReference.cache
