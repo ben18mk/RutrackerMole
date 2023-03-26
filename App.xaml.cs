@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace RutrackerMole_v2._0
+namespace RutrackerMole_v2._1
 {
     /// <summary>
     /// Interaction logic for App.xaml

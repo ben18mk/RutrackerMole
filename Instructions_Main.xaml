@@ -1,0 +1,28 @@
+﻿<Window x:Class="RutrackerMole_v2._1.Instructions_Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RutrackerMole_v2._1"
+        xmlns:UserControls="clr-namespace:RutrackerMole_v2._1.UserControls"
+        mc:Ignorable="d"
+        Title="Instructions" Height="600" Width="800"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <UserControls:Switch x:Name="ucsSwitchSingleMulti"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             Switched="ucsSwitchSingleMulti_Switched"/>
+
+        <ScrollViewer Grid.Row="1">
+            <Frame x:Name="fFrame"
+               NavigationUIVisibility="Hidden"/>
+        </ScrollViewer>
+    </Grid>
+</Window>

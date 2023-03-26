@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RutrackerMole_v2._0
+namespace RutrackerMole_v2._1
 {
     class GDI32_dll
     {

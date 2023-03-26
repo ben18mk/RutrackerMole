@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace RutrackerMole_v2._0
+namespace RutrackerMole_v2._1
 {
     /// <summary>
     /// Interaction logic for Info.xaml

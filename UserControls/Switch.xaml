@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="RutrackerMole_v2._1.UserControls.Switch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RutrackerMole_v2._1.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="400"
+             IsEnabledChanged="UserControl_IsEnabledChanged">
+    <Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Background="{Binding LeftOnColor}">
+                <TextBlock x:Name="tbkLeft"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="1"
+                      Background="{Binding RightOnColor}">
+                <TextBlock x:Name="tbkRight"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+
+        <Rectangle HorizontalAlignment="Left"
+                       Height="30"
+                       Stroke="Gray"
+                       VerticalAlignment="Top"
+                       Width="400"/>
+        <Rectangle x:Name="rglSwitch"
+                       Fill="{Binding SwitchColor}" 
+                       HorizontalAlignment="Left"
+                       Height="28"
+                       VerticalAlignment="Top"
+                       Width="199"
+                       Margin="1,1,0,0"
+                       MouseLeftButtonDown="rglSwitch_MouseLeftButtonDown"/>
+    </Grid>
+</UserControl>
