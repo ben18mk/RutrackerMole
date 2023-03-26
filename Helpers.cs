@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RutrackerMole_v0_1
+namespace RutrackerMole_v1_0
 {
     static class Helpers
     {
@@ -46,6 +46,15 @@ namespace RutrackerMole_v0_1
         }
         public static int GetPageNumberByURL(string strURL)
             => strURL.Contains("&start=") ? int.Parse(strURL.Substring(strURL.IndexOf("&start=") + 7)) / 30 + 1 : 1;
+        public static int CountPages(string strURL)
+        {
+            string strHTML = GetHTML(strURL);
+            int nFlagIndex = strHTML.IndexOf("</a>&nbsp;&nbsp;<a class=\"pg\"");
+            strHTML = strHTML.Substring(nFlagIndex - 10);
+            strHTML = strHTML.Substring(strHTML.IndexOf(">") + 1);
+
+            return int.Parse(strHTML.Substring(0, strHTML.IndexOf("<")));
+        }
         public static bool CheckHTML(string strHTML, string strFind)
             => strHTML.Contains(strFind);
     }
